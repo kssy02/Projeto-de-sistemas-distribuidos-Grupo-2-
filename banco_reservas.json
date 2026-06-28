@@ -1,0 +1,508 @@
+{
+    "estado_salas": {
+        "SALA_A": {
+            "2026-07-20": {
+                "07:00": "3c9067fc-b347-436b-8e00-c9db4776acbd",
+                "08:00": null,
+                "09:00": null,
+                "10:00": null,
+                "11:00": null,
+                "12:00": null,
+                "13:00": null,
+                "14:00": null,
+                "15:00": "85da0e86-5ce4-4e07-a873-fe84a1b8e239",
+                "16:00": null,
+                "17:00": null,
+                "18:00": null,
+                "19:00": null,
+                "20:00": null,
+                "21:00": null
+            },
+            "2026-06-29": {
+                "07:00": null,
+                "08:00": null,
+                "09:00": null,
+                "10:00": null,
+                "11:00": null,
+                "12:00": null,
+                "13:00": null,
+                "14:00": null,
+                "15:00": null,
+                "16:00": null,
+                "17:00": null,
+                "18:00": null,
+                "19:00": null,
+                "20:00": null,
+                "21:00": null
+            },
+            "2026-07-23": {
+                "07:00": "4bc26f00-f89c-4b37-b52f-ef45944f521f",
+                "08:00": "5a95e8e7-0dd6-45a9-b771-cd25741b426f",
+                "09:00": "1217e77c-c9a1-4175-826b-7228ec24d98b",
+                "10:00": "69b09ba7-0d66-4965-8459-2e9ffa5074a5",
+                "11:00": "869fecb7-3472-48fb-9441-d0ea1225bc52",
+                "12:00": "8340bfc7-aa65-47a6-8382-70155f8cdd94",
+                "13:00": "02139b78-7a1e-4904-a9e5-9d3702a12f31",
+                "14:00": "538224a1-f35a-436e-9cf0-ad9cc6ac65c7",
+                "15:00": "5d471b9b-67e2-45ed-ab4d-dbe0bfde024a",
+                "16:00": "b522cebd-aebb-4095-8afc-b54c973f0f92",
+                "17:00": "33a5e696-9b1c-4653-9f21-4cc36796de97",
+                "18:00": "db187add-ba6d-47b8-986a-a1679025d0ce",
+                "19:00": "32a2d3fb-0295-4339-a2f9-8909e72d1c4d",
+                "20:00": "2c4674dc-2f7a-4c0a-9c68-b946a85f43f6",
+                "21:00": "57875d65-66a8-4a9f-8fd8-dac14b834a5b"
+            }
+        },
+        "SALA_B": {
+            "2026-07-20": {
+                "07:00": null,
+                "08:00": null,
+                "09:00": null,
+                "10:00": null,
+                "11:00": null,
+                "12:00": null,
+                "13:00": null,
+                "14:00": null,
+                "15:00": "0e2c7787-69b0-43b1-a6fb-28f4745dc405",
+                "16:00": "148464f3-54a1-4256-a290-38e18a74eecc",
+                "17:00": null,
+                "18:00": null,
+                "19:00": null,
+                "20:00": null,
+                "21:00": null
+            },
+            "2026-06-29": {
+                "07:00": null,
+                "08:00": null,
+                "09:00": null,
+                "10:00": null,
+                "11:00": null,
+                "12:00": null,
+                "13:00": null,
+                "14:00": null,
+                "15:00": null,
+                "16:00": null,
+                "17:00": null,
+                "18:00": null,
+                "19:00": null,
+                "20:00": null,
+                "21:00": null
+            },
+            "2026-07-23": {
+                "07:00": "e84b5ca9-e8f2-4c08-b7b2-5721781188f8",
+                "08:00": "fd9e38b8-a4d8-4c2b-95c9-c380783b387c",
+                "09:00": "8d866594-da0a-43fa-acfa-8e9687edd29b",
+                "10:00": "033497b1-a11b-4728-a7a3-80557c71833c",
+                "11:00": "7d455a59-ecaa-473a-8f1b-a6df7c3afafb",
+                "12:00": "f88d9a03-3420-4f9f-979c-7f0f60aec38d",
+                "13:00": "f492a35c-00a6-4d6e-bf8f-c43d19191df5",
+                "14:00": "10b5f849-45b8-49f4-8950-ccaa4b68f055",
+                "15:00": "c4db140e-c111-4a51-9c9a-7943d7bb38ac",
+                "16:00": "54f67f96-c862-4401-9077-ca49ff7fcc3b",
+                "17:00": "5a119a59-0894-4719-b2ce-25bf338a60b0",
+                "18:00": "c08c96d4-7509-4c90-842f-7a2d510ac6d9",
+                "19:00": "1950706a-2959-455c-8c79-05ebaf52b643",
+                "20:00": "765c87ae-d4a4-4b83-9dd6-398bd637d044",
+                "21:00": "4b4d13db-fc88-488d-b635-eca6747d8755"
+            }
+        },
+        "SALA_C": {
+            "2026-07-20": {
+                "07:00": null,
+                "08:00": null,
+                "09:00": null,
+                "10:00": null,
+                "11:00": null,
+                "12:00": null,
+                "13:00": null,
+                "14:00": null,
+                "15:00": null,
+                "16:00": null,
+                "17:00": null,
+                "18:00": null,
+                "19:00": null,
+                "20:00": null,
+                "21:00": null
+            },
+            "2026-06-29": {
+                "07:00": null,
+                "08:00": null,
+                "09:00": null,
+                "10:00": null,
+                "11:00": null,
+                "12:00": null,
+                "13:00": null,
+                "14:00": null,
+                "15:00": null,
+                "16:00": null,
+                "17:00": null,
+                "18:00": null,
+                "19:00": null,
+                "20:00": null,
+                "21:00": null
+            },
+            "2026-07-23": {
+                "07:00": "1bc25567-fdd4-4080-abab-56ac743c7672",
+                "08:00": "147e038a-58fa-416f-9090-56b7aa7d580f",
+                "09:00": "9a533a1c-94b3-4ce3-80fb-707f0c4de95e",
+                "10:00": "9048c3c7-1a0f-4181-8eeb-1509441beda9",
+                "11:00": "764db76e-878c-4f83-878f-d57fe362f5ea",
+                "12:00": "b1afd552-d4cb-4daf-96fa-1ad5b127df05",
+                "13:00": "f6e2b95c-06cc-4eef-a5d3-018e86782f85",
+                "14:00": "58d62a3e-8c13-408b-99c6-ee7a481f6fc4",
+                "15:00": "2547aa0c-7cbd-4a91-846f-f999f82df575",
+                "16:00": "950d5c94-3cfa-443e-a56f-13cc93d59a5b",
+                "17:00": "22964fc7-30c5-4de8-b05b-359cbbb751e9",
+                "18:00": "43e3ffda-cbfc-458e-9c7c-02acc92c33fa",
+                "19:00": "302728b4-ea3f-4698-bbf5-e402fe0e2625",
+                "20:00": "4a0b57f2-10d6-4359-88d3-e44cb16bdb66",
+                "21:00": "b005f51c-13d5-4d4f-9fd3-cc36f29ec9e4"
+            }
+        }
+    },
+    "reservas": {
+        "85da0e86-5ce4-4e07-a873-fe84a1b8e239": {
+            "sala": "SALA_A",
+            "data": "2026-07-20",
+            "horario": "15:00",
+            "usuario": "usuario1",
+            "criado_em": "2026-06-28T02:22:14.432962"
+        },
+        "0e2c7787-69b0-43b1-a6fb-28f4745dc405": {
+            "sala": "SALA_B",
+            "data": "2026-07-20",
+            "horario": "15:00",
+            "usuario": "usuario2",
+            "criado_em": "2026-06-28T02:24:41.885325"
+        },
+        "148464f3-54a1-4256-a290-38e18a74eecc": {
+            "sala": "SALA_B",
+            "data": "2026-07-20",
+            "horario": "16:00",
+            "usuario": "usuario2",
+            "criado_em": "2026-06-28T02:25:08.711554"
+        },
+        "4bc26f00-f89c-4b37-b52f-ef45944f521f": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "07:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:35.250506"
+        },
+        "5a95e8e7-0dd6-45a9-b771-cd25741b426f": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "08:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:37.363017"
+        },
+        "1217e77c-c9a1-4175-826b-7228ec24d98b": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "09:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:38.661605"
+        },
+        "69b09ba7-0d66-4965-8459-2e9ffa5074a5": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "10:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:41.708783"
+        },
+        "869fecb7-3472-48fb-9441-d0ea1225bc52": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "11:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:42.524300"
+        },
+        "8340bfc7-aa65-47a6-8382-70155f8cdd94": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "12:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:43.194989"
+        },
+        "02139b78-7a1e-4904-a9e5-9d3702a12f31": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "13:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:46.515282"
+        },
+        "538224a1-f35a-436e-9cf0-ad9cc6ac65c7": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "14:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:47.772992"
+        },
+        "5d471b9b-67e2-45ed-ab4d-dbe0bfde024a": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "15:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:48.617522"
+        },
+        "b522cebd-aebb-4095-8afc-b54c973f0f92": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "16:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:49.566703"
+        },
+        "33a5e696-9b1c-4653-9f21-4cc36796de97": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "17:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:50.440131"
+        },
+        "db187add-ba6d-47b8-986a-a1679025d0ce": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "18:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:51.304359"
+        },
+        "32a2d3fb-0295-4339-a2f9-8909e72d1c4d": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "19:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:52.397990"
+        },
+        "2c4674dc-2f7a-4c0a-9c68-b946a85f43f6": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "20:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:53.097987"
+        },
+        "57875d65-66a8-4a9f-8fd8-dac14b834a5b": {
+            "sala": "SALA_A",
+            "data": "2026-07-23",
+            "horario": "21:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:53.831106"
+        },
+        "fd9e38b8-a4d8-4c2b-95c9-c380783b387c": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "08:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:56.248503"
+        },
+        "e84b5ca9-e8f2-4c08-b7b2-5721781188f8": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "07:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:57.293618"
+        },
+        "8d866594-da0a-43fa-acfa-8e9687edd29b": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "09:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:58.534168"
+        },
+        "033497b1-a11b-4728-a7a3-80557c71833c": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "10:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:51:59.364967"
+        },
+        "7d455a59-ecaa-473a-8f1b-a6df7c3afafb": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "11:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:00.083606"
+        },
+        "f88d9a03-3420-4f9f-979c-7f0f60aec38d": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "12:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:00.748652"
+        },
+        "f492a35c-00a6-4d6e-bf8f-c43d19191df5": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "13:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:01.477461"
+        },
+        "10b5f849-45b8-49f4-8950-ccaa4b68f055": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "14:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:02.196112"
+        },
+        "54f67f96-c862-4401-9077-ca49ff7fcc3b": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "16:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:03.522401"
+        },
+        "c4db140e-c111-4a51-9c9a-7943d7bb38ac": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "15:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:04.400420"
+        },
+        "5a119a59-0894-4719-b2ce-25bf338a60b0": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "17:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:05.438837"
+        },
+        "c08c96d4-7509-4c90-842f-7a2d510ac6d9": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "18:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:06.313123"
+        },
+        "1950706a-2959-455c-8c79-05ebaf52b643": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "19:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:07.251712"
+        },
+        "765c87ae-d4a4-4b83-9dd6-398bd637d044": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "20:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:08.146756"
+        },
+        "4b4d13db-fc88-488d-b635-eca6747d8755": {
+            "sala": "SALA_B",
+            "data": "2026-07-23",
+            "horario": "21:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:09.972286"
+        },
+        "1bc25567-fdd4-4080-abab-56ac743c7672": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "07:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:11.302795"
+        },
+        "147e038a-58fa-416f-9090-56b7aa7d580f": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "08:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:11.974489"
+        },
+        "9a533a1c-94b3-4ce3-80fb-707f0c4de95e": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "09:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:12.682652"
+        },
+        "9048c3c7-1a0f-4181-8eeb-1509441beda9": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "10:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:13.819640"
+        },
+        "764db76e-878c-4f83-878f-d57fe362f5ea": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "11:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:15.089774"
+        },
+        "f6e2b95c-06cc-4eef-a5d3-018e86782f85": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "13:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:16.589735"
+        },
+        "b1afd552-d4cb-4daf-96fa-1ad5b127df05": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "12:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:17.491137"
+        },
+        "58d62a3e-8c13-408b-99c6-ee7a481f6fc4": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "14:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:18.657419"
+        },
+        "2547aa0c-7cbd-4a91-846f-f999f82df575": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "15:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:19.371972"
+        },
+        "950d5c94-3cfa-443e-a56f-13cc93d59a5b": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "16:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:20.932516"
+        },
+        "22964fc7-30c5-4de8-b05b-359cbbb751e9": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "17:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:21.632487"
+        },
+        "43e3ffda-cbfc-458e-9c7c-02acc92c33fa": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "18:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:22.328997"
+        },
+        "302728b4-ea3f-4698-bbf5-e402fe0e2625": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "19:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:23.795710"
+        },
+        "4a0b57f2-10d6-4359-88d3-e44cb16bdb66": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "20:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:52:24.500329"
+        },
+        "b005f51c-13d5-4d4f-9fd3-cc36f29ec9e4": {
+            "sala": "SALA_C",
+            "data": "2026-07-23",
+            "horario": "21:00",
+            "usuario": "Fabinho",
+            "criado_em": "2026-06-28T02:54:04.436939"
+        },
+        "3c9067fc-b347-436b-8e00-c9db4776acbd": {
+            "sala": "SALA_A",
+            "data": "2026-07-20",
+            "horario": "07:00",
+            "usuario": "Gab",
+            "criado_em": "2026-06-28T02:55:48.063672"
+        }
+    }
+}
