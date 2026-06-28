@@ -2,6 +2,12 @@ from asyncio import Lock
 from typing import Dict, Optional
 from datetime import datetime
 import uuid
+import json
+import os
+
+# ============ VARIÁVEIS GLOBAIS ============
+
+arquivo_reservas = "banco_reservas.json"
 
 # ============ ESTRUTURA DE DADOS ============
 
@@ -20,6 +26,15 @@ locks_por_sala: Dict[str, Lock] = {
 }
 
 # ============ FUNÇÕES ============
+
+def salvar_em_disco():
+    """Grava o estado atual da memória RAM no arquivo JSON local."""
+    dados = {
+        "estado_salas": estado_salas,
+        "reservas": reservas
+    }
+    with open(arquivo_reservas, "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False)
 
 def inicializar_data(data: str):
     for sala in estado_salas:
@@ -53,6 +68,8 @@ def reservar_sala(sala: str, data: str, horario: str, usuario: str) -> str:
         'usuario': usuario,
         'criado_em': datetime.now().isoformat()
     }
+    
+    salvar_em_disco()
     return reserva_id
 
 def cancelar_reserva(reserva_id: str):
@@ -65,9 +82,9 @@ def cancelar_reserva(reserva_id: str):
     horario = reserva['horario']
     
     if estado_salas[sala][data][horario] == reserva_id:
-        estado_salas[sala][data][horario] = None
-    
-    del reservas[reserva_id]
+        estado_salas[sala][data][horario] = None    
+    del reservas[reserva_id]    
+    salvar_em_disco()
 
 def obter_reserva(reserva_id: str) -> dict:
     if reserva_id not in reservas:
@@ -82,3 +99,14 @@ def limpar_estado():
         'SALA_C': {}
     }
     reservas = {}
+    salvar_em_disco()
+
+if os.path.exists(arquivo_reservas):
+    try:
+        with open(arquivo_reservas, "r", encoding="utf-8") as f:
+            dados_carregados = json.load(f)
+            estado_salas.update(dados_carregados.get("estado_salas", {}))
+            reservas.update(dados_carregados.get("reservas", {}))
+        print("💾 Dados de reservas carregados com sucesso do disco!")
+    except Exception as e:
+        print(f"⚠️ Erro ao carregar banco de dados local: {e}")
