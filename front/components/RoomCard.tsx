@@ -7,7 +7,7 @@ interface RoomCardProps {
   salaId: string;
   horariosStatus: { [horario: string]: string | null };
   handleReservar: (sala: string, horario: string) => void;
-  idUsuario?: string; // 🎯 Recebendo o ID do usuário logado vindo do RoomGrid
+  idUsuario?: string; //  Recebendo o ID do usuário logado vindo do RoomGrid
 }
 
 const RoomCard: React.FC<RoomCardProps> = ({

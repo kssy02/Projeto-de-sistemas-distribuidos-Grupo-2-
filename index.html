@@ -108,14 +108,14 @@
                 body: JSON.stringify({ sala, data, hora, cliente })
             });
             if (res.ok) {
-                mostrarToast('✅ Reserva confirmada!', '#2e7d32');
+                mostrarToast(' Reserva confirmada!', '#2e7d32');
                 carregarSalas();
             } else {
                 const erro = await res.json();
-                mostrarToast('❌ ' + erro.erro, '#c62828');
+                mostrarToast(' ' + erro.erro, '#c62828');
             }
         } catch (e) {
-            mostrarToast('❌ Erro ao reservar', '#c62828');
+            mostrarToast(' Erro ao reservar', '#c62828');
         }
     }
 
@@ -124,14 +124,14 @@
         try {
             const res = await fetch(`${API}/cancel/${id}`, { method: 'DELETE' });
             if (res.ok) {
-                mostrarToast('✅ Reserva cancelada', '#2e7d32');
+                mostrarToast(' Reserva cancelada', '#2e7d32');
                 carregarSalas();
             } else {
                 const erro = await res.json();
-                mostrarToast('❌ ' + erro.erro, '#c62828');
+                mostrarToast(' ' + erro.erro, '#c62828');
             }
         } catch (e) {
-            mostrarToast('❌ Erro ao cancelar', '#c62828');
+            mostrarToast(' Erro ao cancelar', '#c62828');
         }
     }
 

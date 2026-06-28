@@ -44,7 +44,7 @@ async def testar_reserva_simples():
     
     print("1️⃣ Verificando saúde do servidor...")
     health = await cliente.health()
-    print(f"   ✅ {health}")
+    print(f"    {health}")
     
     print(f"\n2️⃣ Consultando disponibilidade para {data}...")
     check = await cliente.check(data)
@@ -58,7 +58,7 @@ async def testar_reserva_simples():
         horario="10:00",
         usuario="fabio.filho"
     )
-    print(f"   ✅ Status {status}: {resultado}")
+    print(f"    Status {status}: {resultado}")
     reserva_id = resultado.get('reserva_id')
     
     print(f"\n4️⃣ Verificando disponibilidade após reserva...")
@@ -67,7 +67,7 @@ async def testar_reserva_simples():
     
     print(f"\n5️⃣ Cancelando reserva {reserva_id}...")
     resultado, status = await cliente.cancelar(reserva_id)
-    print(f"   ✅ {resultado}")
+    print(f"    {resultado}")
     
     print(f"\n6️⃣ Verificando disponibilidade após cancelamento...")
     check = await cliente.check(data)
@@ -77,7 +77,7 @@ async def main():
     try:
         await testar_reserva_simples()
     except httpx.ConnectError:
-        print("\n❌ ERRO: Servidor não está rodando!")
+        print("\n ERRO: Servidor não está rodando!")
         print("Execute: cd server && uvicorn main:app --reload")
 
 if __name__ == "__main__":
