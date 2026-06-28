@@ -3,6 +3,7 @@ from fastapi import FastAPI, HTTPException
 from contextlib import asynccontextmanager
 import state
 from schemas import ReservaRequest
+from fastapi.middleware.cors import CORSMiddleware
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -21,6 +22,14 @@ app = FastAPI(
     description="API para gerenciamento de reservas de salas de estudo",
     version="1.0.0",
     lifespan=lifespan
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/")
