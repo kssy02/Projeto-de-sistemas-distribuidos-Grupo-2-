@@ -1,10 +1,23 @@
 {
+  "name": "projeto-raiz",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "front",
+    "back"
+  ],
+  "scripts": {
+    "python-core": "cd server && py -3.12 -m uvicorn main:app --reload --port 8000",
+    "back": "npm run dev --workspace=back",
+    "front": "npm run dev --workspace=front",
+    "liberar-terminal": "powershell -Command \"Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser\"",
+    "dev": "concurrently \"npm run back\" \"npm run python-core\" \"npm run front\"",
+    "postinstall": "py -3.12 -m pip install -r requirements.txt"
+  },
   "dependencies": {
-    "@tursodatabase/vercel-experimental": "^0.1.0",
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "pg": "^8.22.0",
-    "sqlite3": "^6.0.1"
+    "@tursodatabase/vercel-experimental": "^0.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
   }
 }
