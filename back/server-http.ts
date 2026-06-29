@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 // Configuração do CORS
 app.use(cors({
-    origin: '*', // Permite que qualquer origem acesse a API
+    origin: '*', 
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'bypass-tunnel-reminder']
 }));
@@ -88,9 +88,9 @@ async function criarTabelas(): Promise<void> {
             );
         `);
 
-        console.log('✅ Todas as tabelas prontas e verificadas no Neon (PostgreSQL)');
+        console.log('=== Tabelas verificadas no Postgres ===');
     } catch (err) {
-        console.error('❌ Erro detalhado ao criar tabelas:', err);
+        console.error('Erro ao criar tabelas:', err);
     }
 }
 
@@ -140,7 +140,7 @@ app.get('/check', async (req: Request, res: Response): Promise<any> => {
 
         res.json({ data, salas: resultado });
     } catch (err: any) {
-        console.error('❌ Erro no CHECK detalhado:', err);
+        console.error('Erro no CHECK:', err);
         res.status(500).json({ erro: 'Erro no banco de dados ao checar horários' });
     }
 });
@@ -166,12 +166,12 @@ app.post('/api/usuarios/sync', async (req: Request, res: Response): Promise<any>
 
         res.json({ sucesso: true, usuario: result.rows[0] });
     } catch (err: any) {
-        console.error("❌ Erro ao sincronizar usuário no Postgres:", err.message);
+        console.error("Erro ao sincronizar usuario:", err.message);
         res.status(500).json({ erro: 'Erro interno ao salvar dados de sessão do usuário.' });
     }
 });
 
-// ROTA: RESERVE (Relacionando sala_id e usuario_id com trava de concorrência no FastAPI)
+// ROTA: RESERVE (Envia dados detalhados da reserva criada para o Python)
 app.post('/reserve', async (req: Request, res: Response): Promise<any> => {
     const { sala, data, hora, usuario_id, titulo_evento } = req.body;
 
@@ -199,6 +199,23 @@ app.post('/reserve', async (req: Request, res: Response): Promise<any> => {
 
         const result = await pool.query(queryText, values);
 
+        // Notifica o FastAPI passando o tipo RESERVA e as propriedades no body
+        fetch('http://localhost:8000/api/notificar-mutacao', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                tipo: "RESERVA",
+                dados: {
+                    reserva_id: novaReservaId,
+                    sala_id: sala,
+                    usuario_id: usuario_id,
+                    data_reserva: data,
+                    hora_reserva: hora,
+                    titulo_evento: titulo_evento || 'Reserva de Sala'
+                }
+            })
+        }).catch(err => console.error('Falha ao notificar insercao ao Python:', err.message));
+
         return res.json({ 
             sucesso: true, 
             reserva_id: result.rows[0].id,
@@ -206,20 +223,9 @@ app.post('/reserve', async (req: Request, res: Response): Promise<any> => {
         });
 
     } catch (err: any) {
-        console.error("❌ ERRO REAL DENTRO DO POSTGRES:", err.message);
-        
         if (err.code === '23505') {
-            return res.status(409).json({ 
-                erro: 'Conflito de horário: Esta sala acabou de ser ocupada por outra requisição simultânea!' 
-            });
+            return res.status(409).json({ erro: 'Conflito de horário!' });
         }
-
-        if (err.code === '23503') {
-            return res.status(400).json({ 
-                erro: 'Erro de consistência: Verifique se a Sala ou o Usuário existem no banco de dados.' 
-            });
-        }
-
         return res.status(500).json({ erro: 'Erro interno no banco de dados', detalhe: err.message });
     }
 });
@@ -237,23 +243,46 @@ app.get('/reservas', async (req: Request, res: Response) => {
         `);
         res.json(result.rows);
     } catch (err) {
-        console.error('❌ Erro no RESERVAS:', err);
         res.status(500).json({ erro: 'Erro no banco' });
     }
 });
 
-// ROTA: CANCELAR
+// ROTA: CANCELAR (Captura os metadados antes de deletar e envia o tipo CANCELAMENTO ao Python)
 app.delete('/cancel/:id', async (req: Request, res: Response): Promise<any> => {
     const id = req.params.id;
     try {
+        // Coleta dados da reserva antes da exclusão para documentar o log
+        const dadosReserva = await pool.query(
+            'SELECT sala_id, usuario_id, data_reserva, hora_reserva, titulo_evento FROM reservas WHERE id = $1',
+            [id]
+        );
+
         const result = await pool.query('DELETE FROM reservas WHERE id = $1', [id]);
         if (result.rowCount === 0) {
             return res.status(404).json({ erro: 'Reserva não encontrada' });
         }
-        console.log(`CANCEL - ${id}`);
+        
+        const antigasInfo = dadosReserva.rows[0] || {};
+
+        // Notifica o FastAPI passando o tipo CANCELAMENTO
+        fetch('http://localhost:8000/api/notificar-mutacao', { 
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                tipo: "CANCELAMENTO",
+                dados: {
+                    reserva_id: id,
+                    sala_id: antigasInfo.sala_id || "Desconhecida",
+                    usuario_id: antigasInfo.usuario_id || "Desconhecido",
+                    data_reserva: antigasInfo.data_reserva || "",
+                    hora_reserva: antigasInfo.hora_reserva || "",
+                    titulo_evento: antigasInfo.titulo_evento || ""
+                }
+            })
+        }).catch(err => console.error('Falha ao notificar remocao ao Python:', err.message));
+
         res.json({ mensagem: 'Reserva cancelada' });
     } catch (err) {
-        console.error('❌ Erro no CANCEL:', err);
         res.status(500).json({ erro: 'Erro ao cancelar' });
     }
 });
@@ -319,14 +348,13 @@ app.post('/salas/vincular-recurso', async (req: Request, res: Response) => {
         );
         res.json({ OK: true, mensagem: 'Recurso vinculado com sucesso!' });
     } catch (err) {
-        console.error(err);
         res.status(500).json({ erro: 'Erro ao associar recurso à sala.' });
     }
 });
 
-// INICIAR O SERVIDOR APÓS AS TABELAS COMPILADAS
+// INICIAR O SERVIDOR
 criarTabelas().then(() => {
     app.listen(PORT, () => {
-        console.log(`🚀 Servidor HTTP do Proxy rodando na porta ${PORT}`);
+        console.log(`Servidor HTTP do Proxy rodando na porta ${PORT}`);
     });
 });
