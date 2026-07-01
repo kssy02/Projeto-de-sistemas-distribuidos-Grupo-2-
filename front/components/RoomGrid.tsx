@@ -12,7 +12,7 @@ interface RoomGridProps {
   // Mudamos aqui para aceitar o array direto do banco ou o objeto anterior envelopado
   salasStatus: any; 
   handleReservar: (sala: string, horario: string) => void;
-  idUsuario?: string; // 🎯 Mantido e agora utilizado
+  idUsuario?: string; //  Mantido e agora utilizado
 }
 
 const RoomGrid: React.FC<RoomGridProps> = ({ salasStatus, handleReservar, idUsuario }) => {
@@ -47,7 +47,7 @@ const RoomGrid: React.FC<RoomGridProps> = ({ salasStatus, handleReservar, idUsua
           salaId={salaItem.sala_id} // Passa o ID real para a reserva ("SALA_E112")
           horariosStatus={salaItem.horarios} // Passa o objeto {"07:00": null, "08:00": "uuid"...}
           handleReservar={handleReservar}
-          idUsuario={idUsuario} // 🚀 Repassando o ID logado para dentro do card tratar a lógica de cores/botões
+          idUsuario={idUsuario} //  Repassando o ID logado para dentro do card tratar a lógica de cores/botões
         />
       ))}
     </div>
