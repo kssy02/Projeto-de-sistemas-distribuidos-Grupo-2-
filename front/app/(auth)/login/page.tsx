@@ -49,7 +49,7 @@ export default function LoginPage() {
   // 🔄 Função auxiliar para cadastrar/atualizar o usuário no Postgres
   const sincronizarUsuarioNoBanco = async (dadosUser: { id: string, nome: string, email: string, avatar_url: string }) => {
     try {
-      const res = await fetch('/api-proxy/api/usuarios/sync', {
+      const res = await fetch('/api-proxy/usuarios/sync', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dadosUser),
