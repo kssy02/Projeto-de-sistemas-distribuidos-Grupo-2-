@@ -34,7 +34,7 @@ export default function ReservasPage() {
     try {
       const timestamp = new Date().getTime();
 
-      // Busca diretamente via proxy quebrando qualquer cache do Next.js/Browser
+      // Busca diretamente via api
       const [resSalas, resCheck] = await Promise.all([
         fetch(`/api-proxy/salas?_t=${timestamp}`, { cache: 'no-store' }),
         fetch(`/api-proxy/check?data=${data}&_t=${timestamp}`, { cache: 'no-store' })
@@ -43,7 +43,7 @@ export default function ReservasPage() {
       if (!resSalas.ok) throw new Error("Erro ao buscar salas do servidor.");
       
       const salasCadastradas = await resSalas.json();
-      // Garante que se o /check falhar ou vier nulo, assumirá um array vazio []
+      // se o /check falhar ou vier nulo, assumirá um array vazio []
       const ocupacaoDia = resCheck.ok ? await resCheck.json() : [];
 
       // Normaliza a lista de salas vindas do Express
@@ -59,7 +59,7 @@ export default function ReservasPage() {
         const horariosSala: { [horario: string]: string | null } = {};
 
         horariosPadrao.forEach(hora => {
-          // Procura no array de reservas do banco se existe um registro para ESTA sala e ESTE horário
+          // Procura no array de reservas do banco 
           const reservaEncontrada = Array.isArray(ocupacaoDia) ? ocupacaoDia.find((reserva: any) => {
             const mSala = String(reserva.sala_id) === idSala;
             // Corta os segundos do banco ("08:00:00" -> "08:00") para comparar estritamente com o Front
@@ -115,7 +115,7 @@ export default function ReservasPage() {
 
       const res = await SalaController.fazerReserva(payload);
       
-      setSucesso(`Reservado com sucesso! ID para cancelamento: ${res.reserva_id || res.id}`);
+      setSucesso(`Reservado com sucesso!`);
       if (res.reserva_id || res.id) {
         setIdCancelamento(res.reserva_id || res.id);
       }

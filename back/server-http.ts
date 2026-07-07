@@ -190,7 +190,6 @@ async function criarTabelas(): Promise<void> {
 // ROTAS DE GERENCIAMENTO (CADASTRADOR ADMIN)
 // =========================================================================
 
-// GET /tipos-sala
 app.get('/tipos-sala', async (req: Request, res: Response) => {
     try {
         const result = await pool.query('SELECT id, nome FROM tipos_sala ORDER BY nome ASC');
@@ -205,7 +204,6 @@ app.get('/tipos-sala', async (req: Request, res: Response) => {
     }
 });
 
-// POST /tipos-sala
 app.post('/tipos-sala', async (req: Request, res: Response): Promise<any> => {
     const { nome } = req.body;
     if (!nome || nome.trim() === '') return res.status(400).json({ erro: 'Nome é obrigatório.' });
@@ -225,7 +223,6 @@ app.post('/tipos-sala', async (req: Request, res: Response): Promise<any> => {
     }
 });
 
-// GET /recursos
 app.get('/recursos', async (req: Request, res: Response) => {
     try {
         const result = await pool.query('SELECT id, nome FROM recursos ORDER BY nome ASC');
@@ -240,7 +237,6 @@ app.get('/recursos', async (req: Request, res: Response) => {
     }
 });
 
-// POST /recursos
 app.post('/recursos', async (req: Request, res: Response): Promise<any> => {
     const { nome } = req.body;
     if (!nome || nome.trim() === '') return res.status(400).json({ erro: 'O nome do recurso é obrigatório.' });
@@ -260,7 +256,6 @@ app.post('/recursos', async (req: Request, res: Response): Promise<any> => {
     }
 });
 
-// GET /salas
 app.get('/salas', async (req: Request, res: Response) => {
     try {
         const result = await pool.query('SELECT * FROM salas ORDER BY id ASC');
@@ -275,11 +270,9 @@ app.get('/salas', async (req: Request, res: Response) => {
     }
 });
 
-// POST /salas 
 app.post('/salas', async (req: Request, res: Response): Promise<any> => {
     const { id, nome_exibicao, tipo_id, capacidade } = req.body;
 
-    // 1. Validação estrita dos campos obrigatórios
     if (!id || !nome_exibicao || !tipo_id) {
         return res.status(400).json({ erro: 'ID, Nome de exibição e Categoria são obrigatórios.' });
     }
@@ -311,7 +304,7 @@ app.post('/salas', async (req: Request, res: Response): Promise<any> => {
     } catch (err: any) {
         console.error("❌ Erro na operação do Postgres/Salas:", err.message);
         
-        // 2. Fallback de contingência: Se o Postgres falhar/estiver offline, tenta salvar no SQLite isoladamente
+        // se o Postgres falhar/estiver offline, tenta salvar no SQLite isoladamente
         try {
             console.warn("⚠️ Tentando salvar sala apenas no banco local (Modo de Contingência)...");
             await dbLocal.run(
@@ -327,7 +320,6 @@ app.post('/salas', async (req: Request, res: Response): Promise<any> => {
     }
 });
 
-// POST /salas/vincular-recurso
 app.post('/salas/vincular-recurso', async (req: Request, res: Response): Promise<any> => {
     const { sala_id, recurso_id } = req.body;
 
@@ -356,7 +348,6 @@ app.post('/salas/vincular-recurso', async (req: Request, res: Response): Promise
 // ROTAS DE USUÁRIOS E RESERVAS
 // =========================================================================
 
-// POST /usuarios/sync
 app.post('/usuarios/sync', async (req: Request, res: Response): Promise<any> => {
     const { id, nome, email, avatar_url } = req.body;
     if (!id || !nome || !email) {
@@ -390,7 +381,6 @@ app.post('/usuarios/sync', async (req: Request, res: Response): Promise<any> => 
     }
 });
 
-// GET /check
 app.get('/check', async (req: Request, res: Response): Promise<any> => {
     const { data } = req.query;
     if (!data) return res.status(400).json({ erro: 'Data é obrigatória' });
@@ -415,7 +405,6 @@ app.get('/check', async (req: Request, res: Response): Promise<any> => {
     }
 });
 
-// POST /reserve
 app.post('/reserve', async (req: Request, res: Response): Promise<any> => {
     const { sala, data, hora, horario, cliente, usuario_id } = req.body;
     const horaFinal = hora || horario;
@@ -454,7 +443,6 @@ app.post('/reserve', async (req: Request, res: Response): Promise<any> => {
     }
 });
 
-// DELETE /cancel/:id
 app.delete('/cancel/:id', async (req: Request, res: Response) => {
     const { id } = req.params;
     const { sala, data, hora } = req.query;
@@ -485,7 +473,6 @@ app.delete('/cancel/:id', async (req: Request, res: Response) => {
     }
 });
 
-// INICIALIZAÇÃO
 async function iniciarServidor() {
     await conectarBancoLocal();
     await criarTabelas();
