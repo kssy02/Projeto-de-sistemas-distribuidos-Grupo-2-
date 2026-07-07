@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { useRouter } from 'next/navigation'; // Importação para navegação nativa no client
 
 interface ReservationControlsProps {
   dataSelecionada: string;
@@ -11,35 +14,34 @@ interface ReservationControlsProps {
 const ReservationControls: React.FC<ReservationControlsProps> = ({
   dataSelecionada,
   setDataSelecionada,
-  idCancelamento,
-  setIdCancelamento,
-  handleCancelar,
 }) => {
+  const router = useRouter();
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+      {/* Bloco de Seleção de Data */}
       <div>
-        <label className="block font-semibold text-xs text-slate-500 uppercase tracking-wider mb-2">Selecione a Data:</label>
+        <label className="block font-semibold text-xs text-slate-500 uppercase tracking-wider mb-2">
+          Selecione a Data:
+        </label>
         <input 
           type="date" 
           value={dataSelecionada} 
           onChange={(e) => setDataSelecionada(e.target.value)}
-          className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600"
+          className="w-full border border-slate-300 rounded-lg p-2.5 focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 text-sm"
         />
       </div>
+
+      {/* Bloco de Gerenciamento Pessoal */}
       <div>
-        <label className="block font-semibold text-xs text-slate-500 uppercase tracking-wider mb-2">Gerenciar / Cancelar por ID:</label>
-        <div className="flex gap-2">
-          <input 
-            type="text" 
-            placeholder="Cole o ID gerado pelo sistema" 
-            value={idCancelamento}
-            onChange={(e) => setIdCancelamento(e.target.value)}
-            className="w-full border border-slate-300 rounded-lg p-2.5 text-xs focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600"
-          />
-          <button onClick={handleCancelar} className="bg-red-700 hover:bg-red-800 text-white font-medium px-5 rounded-lg transition-colors shadow-sm">
-            Remover
-          </button>
-        </div>
+        <label className="block font-semibold text-xs text-slate-500 uppercase tracking-wider mb-2">
+          Gerenciar:
+        </label>
+        <button
+          onClick={() => router.push('/minhas-reservas')}
+          className="w-full hover:bg-slate-100 text-slate-700 font-semibold text-sm p-2.5 rounded-lg border border-slate-300 transition-all shadow-sm active:scale-[0.99] flex items-center justify-center gap-2"
+        >Ver Minhas Reservas
+        </button>
       </div>
     </div>
   );
