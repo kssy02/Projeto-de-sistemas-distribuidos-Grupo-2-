@@ -7,6 +7,7 @@ Este documento descreve todos os passos necessários para configurar e executar 
 # Arquitetura do Sistema
 
 O projeto é composto por serviços independentes que se comunicam via HTTP utilizando o padrão REST, adotando uma estratégia de replicação e persistência síncrona híbrida.
+
 <img width="395" height="498" alt="image" src="https://github.com/user-attachments/assets/d9490d45-4ebc-4c54-bd4d-37bb61ca3567" />
 
  Cada camada possui uma responsabilidade específica:
