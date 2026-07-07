@@ -7,31 +7,7 @@ Este documento descreve todos os passos necessários para configurar e executar 
 # Arquitetura do Sistema
 
 O projeto é composto por serviços independentes que se comunicam via HTTP utilizando o padrão REST, adotando uma estratégia de replicação e persistência síncrona híbrida.
-
-Google OAuth 2.0
-                           │
-                           ▼
-                 +-------------------+
-                 |  Frontend Next.js |
-                 |  (Interface Web)  |
-                 +-------------------+
-                           │
-                    HTTP/JSON (REST)
-                    Via /api-proxy
-                           │
-                           ▼
-               +-----------------------+
-               |  Express API Server   |
-               |   Lógica de Negócio   |
-               | Controle Concorrência |
-               +-----------------------+
-                           │
-           ┌───────────────┴───────────────┐
-           ▼                               ▼
- +-------------------+           +-------------------+
- |   SQLite Local    |           |  Neon PostgreSQL  |
- |  (Edge / Backup)  |           |  (Nuvem / Global) |
- +-------------------+           +-------------------+
+<img width="395" height="498" alt="image" src="https://github.com/user-attachments/assets/d9490d45-4ebc-4c54-bd4d-37bb61ca3567" />
 
  Cada camada possui uma responsabilidade específica:
 
@@ -55,13 +31,8 @@ Os bancos de dados relacionais já estão configurados para inicialização auto
 
 # Estrutura do Projeto
 
-projeto-sistemas-distribuidos/
-│
-├── front/              # Interface Next.js (App Router)
-├── back/               # Servidor Express (lógica de negócio e dados)
-├── package.json        # Configuração de workspaces unificados
-├── .env                # Variáveis de ambiente globais
-└── TUTORIAL.md
+<img width="512" height="175" alt="image" src="https://github.com/user-attachments/assets/9b84d454-5357-422e-aeb1-a981956804f0" />
+
 
 
 ---
